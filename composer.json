@@ -18,11 +18,18 @@
         "symfony/framework-bundle": "5.3.*",
         "symfony/proxy-manager-bridge": "5.3.*",
         "symfony/runtime": "5.3.*",
+        "symfony/security-csrf": "5.3.*",
         "symfony/twig-bundle": "5.3.*",
         "symfony/yaml": "5.3.*"
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.31"
+        "symfony/apache-pack": "^1.0",
+        "symfony/debug-bundle": "^5.3",
+        "symfony/maker-bundle": "^1.31",
+        "symfony/monolog-bundle": "^3.0",
+        "symfony/stopwatch": "^5.3",
+        "symfony/var-dumper": "^5.3",
+        "symfony/web-profiler-bundle": "^5.3"
     },
     "config": {
         "optimize-autoloader": true,
@@ -63,7 +70,7 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false,
+            "allow-contrib": true,
             "require": "5.3.*"
         }
     }
