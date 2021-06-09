@@ -1,25 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pins</title>
-</head>
-<body>
-    <h1>Pins</h1>
-    <a href="{{ path('app_pins_create')}}">Create PIN</a>
+{% extends 'base.html.twig' %}
+
+{% block title %} Pins {% endblock %}
+
+{% block body %}
     <div> 
-    {% if pins|length > 0 %}
-        {% for pin in pins %}
-        <article>
-            <h2>{{ pin.title }}</h2>
-            <p>{{ pin.description }}</p>
-        </article>
-        {% endfor %}
-    {% else %}
-        <b>NOTHING</b>
-    {% endif %}
+        {% if pins|length > 0 %}
+        <h1>{{pluralize(pins | length, 'Pin')}}</h1>
+            {% for pin in pins %}
+            <article>
+                <a href="{{ path('app_pins_show', {'id': pin.id}) }}">
+                    <h2>{{ pin.title }}</h2>
+                </a>
+                <p>{{ pin.description }}</p>
+            </article>
+            {% endfor %}
+        {% else %}
+            <b>NOTHING</b>
+        {% endif %}
     </div>
-</body>
-</html>
+{% endblock %}

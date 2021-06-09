@@ -1,3 +1,14 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+# error404:
+#     path: /404
+#     defaults:
+#         _controller: FrameworkBundle:Template:template
+#         template:    TwigBundle:Exception:error404.html.twig
+
+# error403:
+#     path: /403
+#     defaults:
+#         _controller: FrameworkBundle:Template:template
+#         template:    TwigBundle:Exception:error403.html.twig

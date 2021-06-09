@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Edit Pin' ~ pin.id %}
+
+{% block body %}
+{% include "partials/_form.html.twig" with {'submitButtonText': 'Update'} %}
+{% endblock %}

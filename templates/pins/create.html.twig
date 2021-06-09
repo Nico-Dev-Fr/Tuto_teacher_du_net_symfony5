@@ -1,28 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create</title>
-</head>
-<body>
-    {# <form method="POST">
-    <input type="hidden" name="_token" value="{{ csrf_token('pin_create') }}">
-        <div>
-            <label for="title">Titre</label><br>
-            <input type="text" id="title" name="title">
-        </div><br>
-         <div>
-            <label for="description">Description</label><br>
-            <textarea id="description" name="description" cols="30" rows="10"></textarea>
-        </div><br>
-        <input type="submit" value="CREATE">
-    </form> #}
-    
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create">
-    {{ form_end(form) }}
-</body>
-</html>
+{% extends 'base.html.twig' %}
+
+{% block title %} Create {% endblock %}
+
+{% block body %}
+{% include "partials/_form.html.twig" with {'submitButtonText': 'Create'} %}
+{% endblock %}

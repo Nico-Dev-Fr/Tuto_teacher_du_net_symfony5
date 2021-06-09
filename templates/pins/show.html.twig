@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Show {% endblock %}
+
+{% block body %}
+    {{ pin.title }}
+    {{ pin.description }}
+    <p>Submit {{pin.createdAt|date("d/m/Y")}} </p>
+    <a href="{{ path('app_pins_edit', {'id': pin.id})  }}">Edit</a>
+    <a href="#" onclick="">Delete</a>
+{% endblock %}
