@@ -10,12 +10,16 @@
     <h1>Pins</h1>
     <a href="{{ path('app_pins_create')}}">Create PIN</a>
     <div> 
-    {% for pin in pins %}
-    <article>
-        <h2>{{ pin.title }}</h2>
-        <p>{{ pin.description }}</p>
-    </article>
-    {% endfor %}
+    {% if pins|length > 0 %}
+        {% for pin in pins %}
+        <article>
+            <h2>{{ pin.title }}</h2>
+            <p>{{ pin.description }}</p>
+        </article>
+        {% endfor %}
+    {% else %}
+        <b>NOTHING</b>
+    {% endif %}
     </div>
 </body>
 </html>
