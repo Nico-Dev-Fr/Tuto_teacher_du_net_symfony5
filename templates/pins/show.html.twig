@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'layouts/base.html.twig' %}
 
 {% block title %} Show {% endblock %}
 
@@ -7,5 +7,5 @@
     {{ pin.description }}
     <p>Submit {{pin.createdAt|date("d/m/Y")}} </p>
     <a href="{{ path('app_pins_edit', {'id': pin.id})  }}">Edit</a>
-    <a href="#" onclick="">Delete</a>
+    <a href="{{ path('app_pins_delete', {'id': pin.id})  }}" onclick="">Delete</a>
 {% endblock %}

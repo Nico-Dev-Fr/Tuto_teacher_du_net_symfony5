@@ -41,6 +41,7 @@ class PinsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) { 
             $em->persist($pin);
             $em->flush();
+            $this->addFlash('success','Successfull');
 
             return $this->redirectToRoute('app_pins_show', ['id' => $pin->getId()]);
         }
@@ -62,6 +63,7 @@ class PinsController extends AbstractController
         
         if ($form->isSubmitted() && $form->isValid()) { 
             $em->flush();
+            $this->addFlash('success','Successfull update');
 
             return $this->redirectToRoute('app_home');
         }
@@ -72,11 +74,12 @@ class PinsController extends AbstractController
         ]);
     }
 
-    #[Route('/pins/{id<[0-9]+>}/delete', name : 'app_pins_delete', methods: ['DELETE'])]
+    #[Route('/pins/{id<[0-9]+>}/delete', name : 'app_pins_delete', methods: ['GET'])]
     public function delete(Pin $pin, EntityManagerInterface $em): Response
     {
         $em->remove($pin);
         $em->flush();
+        $this->addFlash('info','Successfull delete');
 
         return $this->redirectToRoute('app_home');
     }
