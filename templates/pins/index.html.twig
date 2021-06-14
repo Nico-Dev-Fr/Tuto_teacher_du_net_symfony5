@@ -3,28 +3,30 @@
 {% block title %} Pins {% endblock %}
 
 {% block body %}
-    <div class="container"> 
-        <div class="grid row">
+    <div class="container h-100"> 
             {% if pins|length > 0 %}
-            <h1>{{pluralize(pins | length, 'Pin')}}</h1>
-                {% for pin in pins %}
-                <div class="col-md-6">
-                    <div class="card">
-                    {% if pin.imageName != "" %}
-                        <img class="card-img-top" src="uploads/pins/{{pin.imageName}}" alt="Card image cap">
-                    {% endif %}
-                        <div class="card-body">
-                            <a href="{{ path('app_pins_show', {'id': pin.id}) }}">
-                                <h2 class="card-title">{{ pin.title }}</h2>
-                            </a>
-                            <p class="card-text">{{ pin.description }}</p>
-                        </div>
+            <h1 class="text-center">{{pluralize(pins | length, 'Pin')}}</h1>
+                {% for row in pins|batch(3) %}
+                <div class="row my-4">
+                    {% for pin in row %}
+                    <div class="col-md-4">
+                            <div class="card">
+                                <a href="{{ path('app_pins_show', {'id': pin.id}) }}">
+                                    <img class="card-img-top" src="{{ pin.imageName ? vich_uploader_asset(pin) | imagine_filter('thumbnail_filter_medium') : asset('build/images/placeholder.jpg')}}" alt="{{ pin.title }}">
+                                </a>
+                                <div class="card-body">
+                                    <h2 class="card-title">{{ pin.title }}</h2>
+                                    <p class="card-text">Submitted by </p>
+                                </div>
+                            </div>
                     </div>
+                    {% endfor %}
                 </div>
                 {% endfor %}
             {% else %}
-                <b>NOTHING</b>
+                <p class="h1 text-center align-middle">
+                Il n'y a rien ici...  <br> <a href="{{ path('app_pins_create')}}"><button type="button" class="btn btn-primary">Créer un Pin</button></a>
+                </p>
             {% endif %}
-        </div>
     </div>
 {% endblock %}
