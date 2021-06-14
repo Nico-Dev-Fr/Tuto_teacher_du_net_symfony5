@@ -4,21 +4,21 @@
 
 {% block body %}
     <div class="container">
-        <div class="row">
-            <div class="col-md-10">
+        <div class="row my-3">
+            <div class="col-md-10 offset-md-1">
                     <div class="card">
                         <img class="card-img-top" src="{{ pin.imageName ? vich_uploader_asset(pin) | imagine_filter('thumbnail_filter_medium') : asset('build/images/placeholder.jpg')}}" alt="{{ pin.title }}">
                         <div class="card-body">
                             <h2 class="card-title">{{ pin.title }}</h2>
                             <p class="card-text">{{ pin.description }}</p>
-                            <p>Submit {{pin.createdAt|date("d/m/Y")}} </p>
+                            <p>Submit {{pin.createdAt|date("d/m/Y")}} by </p>
+                            <a href="{{ path('app_pins_edit', {'id': pin.id})  }}">
+                                <button type="button" class="btn btn-light">Edit</button>
+                            </a>
+                            <a href="{{ path('app_pins_delete', {'id': pin.id})  }}">
+                                <button type="button" class="btn btn-light">Delete</button>
+                            </a>
                         </div>
-                        <a href="{{ path('app_pins_edit', {'id': pin.id})  }}">
-                            <button type="button" class="btn btn-light">Edit</button>
-                        </a>
-                        <a href="{{ path('app_pins_delete', {'id': pin.id})  }}">
-                            <button type="button" class="btn btn-light">Delete</button>
-                        </a>
                     </div>
             </div>
         </div>

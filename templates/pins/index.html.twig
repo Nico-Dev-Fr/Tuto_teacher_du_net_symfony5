@@ -3,13 +3,13 @@
 {% block title %} Pins {% endblock %}
 
 {% block body %}
-    <div class="container h-100"> 
+    <div class="container"> 
             {% if pins|length > 0 %}
             <h1 class="text-center">{{pluralize(pins | length, 'Pin')}}</h1>
                 {% for row in pins|batch(3) %}
                 <div class="row my-4">
                     {% for pin in row %}
-                    <div class="col-md-4">
+                    <div class="pin col-md-4">
                             <div class="card">
                                 <a href="{{ path('app_pins_show', {'id': pin.id}) }}">
                                     <img class="card-img-top" src="{{ pin.imageName ? vich_uploader_asset(pin) | imagine_filter('thumbnail_filter_medium') : asset('build/images/placeholder.jpg')}}" alt="{{ pin.title }}">

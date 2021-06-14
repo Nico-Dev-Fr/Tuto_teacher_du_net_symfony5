@@ -10,3 +10,13 @@ body {
     background-color: lightgray;
     font-family: 'Montserrat', sans-serif;
 }
+
+.pin .card a{
+    overflow: hidden;
+}
+.pin .card-img-top{
+    transition: transform 0.5s ease-in;
+}
+.pin .card-img-top:hover{
+    transform: scale(1.075);
+}
