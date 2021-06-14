@@ -1,4 +1,11 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <input type="submit" value="{{submitButtonText}}" formnovalidate>
-{{ form_end(form) }}
+
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col-md-6 mx-auto">
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <input type="submit" class="btn btn-primary" value="{{submitButtonText}}" formnovalidate>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
