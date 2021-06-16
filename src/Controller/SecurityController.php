@@ -34,12 +34,6 @@ class SecurityController extends AbstractController
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
-    
-    #[Route('/subscribe', name : 'app_user_create', methods: ["GET"])]
-    public function create(UserRepository $repo): Response
-    {
-        return $this->render('users/create.html.twig');
-    }
 
     #[Route('/account', name : 'app_user_edit', methods: ["GET"])]
     public function edit(UserRepository $repo): Response
