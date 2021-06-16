@@ -1,0 +1,10 @@
+{% extends 'layouts/base.html.twig' %}
+
+{% block title %}Account{% endblock %}
+
+{% block body %}
+{% include "layouts/partials/_form.html.twig" with {'submitButtonText': 'Update'} %}
+{# <a href="{{ path('app_account_delete')}}">
+    <button type="button" class="btn btn-light">Delete</button>
+</a> #}
+{% endblock %}
