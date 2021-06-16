@@ -12,12 +12,15 @@
                             <h2 class="card-title">{{ pin.title }}</h2>
                             <p class="card-text">{{ pin.description }}</p>
                             <p>Submit {{pin.createdAt|date("d/m/Y")}} by {{pin.user.fullName}}</p>
+                            
+                            {% if app.user %}
                             <a href="{{ path('app_pins_edit', {'id': pin.id})  }}">
                                 <button type="button" class="btn btn-light">Edit</button>
                             </a>
                             <a href="{{ path('app_pins_delete', {'id': pin.id})  }}">
                                 <button type="button" class="btn btn-light">Delete</button>
                             </a>
+                            {% endif %}
                         </div>
                     </div>
             </div>

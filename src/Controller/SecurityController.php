@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,9 +15,9 @@ class SecurityController extends AbstractController
      */
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
-        // if ($this->getUser()) {
-        //     return $this->redirectToRoute('target_path');
-        // }
+        if ($this->getUser()) {
+            return $this->redirectToRoute('app_home');
+        }
 
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
@@ -32,5 +33,17 @@ class SecurityController extends AbstractController
     public function logout()
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
+    }
+    
+    #[Route('/subscribe', name : 'app_user_create', methods: ["GET"])]
+    public function create(UserRepository $repo): Response
+    {
+        return $this->render('users/create.html.twig');
+    }
+
+    #[Route('/account', name : 'app_user_edit', methods: ["GET"])]
+    public function edit(UserRepository $repo): Response
+    {
+        return $this->render('users/edit.html.twig');
     }
 }
