@@ -2,11 +2,9 @@
   <div class="container">
        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
         <ul class="navbar-nav me-auto">
+        
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{ path('app_home') }}">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ path('app_pins_create')}}">CREATE</a>
           </li>
         </ul>
     </div>
@@ -18,12 +16,24 @@
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ms-auto">
+          {% if app.user %}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ path('app_pins_create')}}">Create Pin</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Account</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Logout</a>
+            <a class="nav-link" href="{{path('app_logout')}}">Logout</a>
           </li>
+            {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sign In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{path('app_login')}}">Login</a>
+          </li>
+            {% endif %}
         </ul>
     </div>
   </div>
