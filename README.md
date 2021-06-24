@@ -7,4 +7,4 @@
 * [Symfony 5.3.1](https://symfony.com/)
 
 ### Demo
-* [Lien vers le site](https://symfony.development.nicolascollot.fr/tuto_teacher_du_net_symfony5/public)
+* [Lien vers le site](https://symfony.development.nicolascollot.fr/tuto_teacher_du_net_symfony5)
