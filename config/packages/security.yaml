@@ -1,7 +1,6 @@
 security:
     encoders:
-        App\Entity\User:
-            algorithm: auto
+        App\Entity\User: auto
 
     # https://symfony.com/doc/current/security/experimental_authenticators.html
     enable_authenticator_manager: true

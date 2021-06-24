@@ -25,7 +25,12 @@
                 {% endfor %}
             {% else %}
                 <p class="h1 text-center align-middle">
-                Il n'y a rien ici...  <br> <a href="{{ path('app_pins_create')}}"><button type="button" class="btn btn-primary">Créer un Pin</button></a>
+                Il n'y a rien ici...  <br> 
+                {% if app.user %}
+                <a href="{{ path('app_pins_create')}}"><button type="button" class="btn btn-primary">Créer un Pin</button></a>
+                {% else %}
+                <a class="nav-link" href="{{path('app_login')}}"><button type="button" class="btn btn-primary">Login</button></a>
+                {% endif %}
                 </p>
             {% endif %}
     </div>
